@@ -2,17 +2,14 @@ package br.com.zupacademy.matheusfernandes.casadocodigo;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
-
-import org.hibernate.validator.constraints.Length;
-import org.springframework.validation.annotation.Validated;
 
 @Entity
 public class Autor {
@@ -24,6 +21,7 @@ public class Autor {
 	private String nome;
 	@Email
 	@NotBlank
+	@Column(unique = true)
 	private String email;
 	@Size(max = 400)
 	@NotBlank
@@ -52,6 +50,7 @@ public class Autor {
 	public LocalDateTime getHoraDeRegistro() {
 		return horaDeRegistro;
 	}
+
 
 	public Autor(@NotBlank String nome, @Email @NotBlank String email, @Size(max = 400) @NotBlank String descricao) {
 

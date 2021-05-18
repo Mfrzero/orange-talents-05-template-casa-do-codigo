@@ -21,4 +21,9 @@ public class AutorForm {
 
 		return new Autor(nome, email, descricao);
 	}
+
+	@Override
+	public String toString() {
+		return "AutorForm [nome=" + nome + ", email=" + email + ", descricao=" + descricao + "]";
+	}
 }

@@ -17,6 +17,8 @@ public class AutorErrorHandler {
 	@ResponseStatus(value = HttpStatus.BAD_REQUEST)
 	public StringBuilder handleResourceNotFoundException(ConstraintViolationException e) {
 		
+//		List<ValidationErrorAutor> erroAutor = new ArrayList<>();
+		
 		Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
 		StringBuilder strBuilder = new StringBuilder();
 		for (ConstraintViolation<?> violation : violations) {
@@ -24,5 +26,8 @@ public class AutorErrorHandler {
 			strBuilder.append("\n");
 		}
 		return strBuilder.deleteCharAt(strBuilder.lastIndexOf("\n"));
+		
+
+//		return new ValidationErrorAutor(null, null);
 	}
 }
