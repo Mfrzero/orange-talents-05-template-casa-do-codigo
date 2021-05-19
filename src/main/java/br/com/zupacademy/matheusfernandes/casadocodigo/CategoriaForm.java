@@ -1,18 +1,13 @@
 package br.com.zupacademy.matheusfernandes.casadocodigo;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.validation.constraints.NotBlank;
+
 
 public class CategoriaForm {
 
-	@Autowired
-	Categoria categoria;
-	
+	@NotBlank
+	@UniqueValue(domainClass = Categoria.class, fieldName = "nome")
 	private String nome;
-
-	public Categoria getCategoria() {
-		return categoria;
-	}
-	
 
 	public String getNome() {
 		return nome;

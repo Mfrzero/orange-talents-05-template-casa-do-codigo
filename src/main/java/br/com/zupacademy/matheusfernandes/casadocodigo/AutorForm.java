@@ -1,9 +1,14 @@
 package br.com.zupacademy.matheusfernandes.casadocodigo;
 
-public class AutorForm {
+import javax.validation.constraints.NotBlank;
 
+public class AutorForm {
+	@NotBlank
 	private String nome;
+	@NotBlank
+	@UniqueValue(domainClass = Categoria.class, fieldName = "email")
 	private String email;
+	@NotBlank
 	private String descricao;
 	
 	public String getNome() {

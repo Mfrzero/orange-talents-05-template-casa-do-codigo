@@ -20,13 +20,6 @@ public class CadastraAutorController {
 	
 	@Autowired
 	AutorRepository autorRepository;
-	@Autowired
-	EmailValidator emailValidator;
-	
-	@InitBinder
-	public void init(WebDataBinder binder) {
-		binder.addValidators(emailValidator);
-	}
 	
 	@GetMapping(value = "/lista")
 	public List<Autor> lista(){

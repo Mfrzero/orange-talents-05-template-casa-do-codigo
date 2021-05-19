@@ -14,18 +14,18 @@ public class Categoria {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@NotBlank
-	private String nomeCadastro;
+	private String nome;
 
 	public Categoria() {
 	}
-	public Categoria(@NotBlank String nomeCadastro) {
-		this.nomeCadastro = nomeCadastro;
+	public Categoria(@NotBlank String nome) {
+		this.nome = nome;
 	}
 	public Long getId() {
 		return id;
 	}
-	public String getNomeCadastro() {
-		return nomeCadastro;
+	public String getNome() {
+		return nome;
 	}
 	
 }

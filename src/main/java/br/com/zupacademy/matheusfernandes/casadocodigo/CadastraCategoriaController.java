@@ -20,13 +20,6 @@ public class CadastraCategoriaController {
 
 	@Autowired
 	CategoriaRepository categoriaRepository;
-	@Autowired
-	CategoriaValidator categoriaValidator;
-	
-	@InitBinder
-	public void init(WebDataBinder binder) {
-		binder.addValidators(categoriaValidator);
-	}
 	
 	@GetMapping(value = "/listaCategoria")
 	public List<Categoria> lista(){

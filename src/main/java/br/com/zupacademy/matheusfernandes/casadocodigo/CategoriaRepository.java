@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
 public interface CategoriaRepository extends CrudRepository<Categoria, Long>{
 
 
-	Optional<Categoria> findByNomeCadastro(String nome);
+	Optional<Categoria> findByNome(String nome);
 
 }
