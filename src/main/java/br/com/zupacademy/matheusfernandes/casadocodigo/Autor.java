@@ -21,7 +21,6 @@ public class Autor {
 	private String nome;
 	@Email
 	@NotBlank
-	@Column(unique = true)
 	private String email;
 	@Size(max = 400)
 	@NotBlank

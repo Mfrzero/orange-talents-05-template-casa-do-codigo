@@ -5,6 +5,7 @@ public class AutorForm {
 	private String nome;
 	private String email;
 	private String descricao;
+	
 	public String getNome() {
 		return nome;
 	}

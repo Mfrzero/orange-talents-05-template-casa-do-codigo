@@ -16,41 +16,35 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @Validated
-public class CadastraAutorController {
-	
+public class CadastraCategoriaController {
+
 	@Autowired
-	AutorRepository autorRepository;
+	CategoriaRepository categoriaRepository;
 	@Autowired
-	EmailValidator emailValidator;
+	CategoriaValidator categoriaValidator;
 	
 	@InitBinder
 	public void init(WebDataBinder binder) {
-		binder.addValidators(emailValidator);
+		binder.addValidators(categoriaValidator);
 	}
 	
-	@GetMapping(value = "/lista")
-	public List<Autor> lista(){
-		Iterable<Autor> autor = autorRepository.findAll();
-		return (List<Autor>) autor;
+	@GetMapping(value = "/listaCategoria")
+	public List<Categoria> lista(){
+		Iterable<Categoria> categoria = categoriaRepository.findAll();
+		return (List<Categoria>) categoria;
 	}
 	
-	@PostMapping(value = "/cadastraAutor")
-	public ResponseEntity<Autor> criaAutor(@RequestBody @Valid AutorForm autorForm) {
+	@PostMapping("/cadastroCategoria")
+	public ResponseEntity<Categoria> criaCategoria(@RequestBody @Valid CategoriaForm form){
 		
-		if (autorForm.getNome().isBlank() || autorForm.getEmail().isBlank() || autorForm.getDescricao().isBlank()) {
+		if (form.getNome().isBlank()) {
 			return ResponseEntity.badRequest().build();
 		}
 		
-		Autor autor = autorForm.converter(autorRepository);
-		
-		System.out.println("Criando autor...");
-		
-		autorRepository.save(autor);
-		autorForm.toString();
+		Categoria categoria = form.converter(categoriaRepository);
+		categoriaRepository.save(categoria);
 		return ResponseEntity.ok().build();
 		
 	}
-	
-
 	
 }
