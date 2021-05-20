@@ -1,7 +1,6 @@
 package br.com.zupacademy.matheusfernandes.casadocodigo;
 
 import java.math.BigDecimal;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
@@ -10,9 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.validation.constraints.Future;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Livro {
@@ -34,7 +31,12 @@ public class Livro {
 	@JoinColumn(name = "categoriaId", foreignKey = @ForeignKey(name = "fkCategoria"))
 	private Categoria idCategoria;
 	
+	
 	public Livro() {
+	}
+
+	public Long getId() {
+		return id;
 	}
 
 	public Autor getIdAutor() {
@@ -64,6 +66,10 @@ public class Livro {
 		this.dataPublicacao = dataPublicacao;
 		this.idAutor = idAutor;
 		this.idCategoria = idCategoria;
+	}
+
+	public Livro(String titulo) {
+		this.titulo = titulo;
 	}
 
 	public String getTitulo() {

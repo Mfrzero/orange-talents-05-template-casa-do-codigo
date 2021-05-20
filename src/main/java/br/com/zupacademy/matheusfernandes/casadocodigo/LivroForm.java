@@ -1,7 +1,6 @@
 package br.com.zupacademy.matheusfernandes.casadocodigo;
 
 import java.math.BigDecimal;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 
 import javax.persistence.EntityManager;
@@ -37,8 +36,6 @@ public class LivroForm {
 	private Long idAutor;
 	@NotNull
 	private Long idCategoria;
-
-
 
 	public LivroForm(@NotBlank String titulo, @NotBlank String resumo, @NotBlank String sumario,
 			@NotNull @Min(20) BigDecimal preco,@NotNull @Min(100) Integer numeroDePaginas, @NotBlank String isbn,

@@ -35,6 +35,12 @@ public class Autor {
 		
 	public Autor() {
 	}
+	
+	public Autor(@NotBlank String nome, @Email @NotBlank String email, @Size(max = 400) @NotBlank String descricao) {
+		this.nome = nome;
+		this.email = email;
+		this.descricao = descricao;
+	}
 
 	public Long getIdAutor() {
 		return idAutor;
@@ -42,12 +48,6 @@ public class Autor {
 
 	public void setIdAutor(Long idAutor) {
 		this.idAutor = idAutor;
-	}
-
-	public Autor(@NotBlank String nome, @Email @NotBlank String email, @Size(max = 400) @NotBlank String descricao) {
-		this.nome = nome;
-		this.email = email;
-		this.descricao = descricao;
 	}
 
 	@Override

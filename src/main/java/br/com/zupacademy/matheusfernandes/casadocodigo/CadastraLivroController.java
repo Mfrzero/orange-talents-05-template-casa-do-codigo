@@ -22,29 +22,14 @@ public class CadastraLivroController {
 	@PersistenceContext
 	private EntityManager manager;
 
-//	@PostMapping("/cadastrarLivro")
-//	public ResponseEntity<LivroForm> cadastrar(@RequestBody @Valid LivroForm livroForm) {
-//		Livro livro = livroForm.converter(livroRepository);
-//		livroRepository.save(livro);
-//		if (livroForm.getAutor() == null) {
-//			return ResponseEntity.badRequest().build();
-//		}
-//		return ResponseEntity.ok().build();
-//	}
 	@GetMapping(value = "/listaLivros")
-	public List<Livro> lista(){
-		List<Livro> categoria = (List<Livro>) livroRepository.findAll();
-		return categoria;
+	public List<LivroDto> lista(){
+		Iterable<Livro> livro = livroRepository.findAll();
+		
+		return LivroDto.converter((List<Livro>) livro);
+		
 	}
 
-//	@PostMapping("/cadastrarLivro")
-//	@Transactional
-//	public String cadastrar(@RequestBody @Valid LivroForm livroForm) {
-//		Livro livro = livroForm.converter(manager);
-//		manager.persist(livro);
-//
-//		return "ta chegando";
-//	}
 	@PostMapping("/cadastrarLivro")
 	@Transactional
 	public ResponseEntity<LivroForm> cadastrar(@RequestBody @Valid LivroForm livroForm) {
