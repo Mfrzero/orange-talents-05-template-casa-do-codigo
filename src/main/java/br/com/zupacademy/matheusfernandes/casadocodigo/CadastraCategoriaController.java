@@ -28,16 +28,13 @@ public class CadastraCategoriaController {
 	}
 	
 	@PostMapping("/cadastroCategoria")
-	public ResponseEntity<Categoria> criaCategoria(@RequestBody @Valid CategoriaForm form){
-		
-		if (form.getNome().isBlank()) {
-			return ResponseEntity.badRequest().build();
+	public ResponseEntity<CategoriaForm> criaCategoria(@RequestBody @Valid CategoriaForm form){
+		if (!form.getNome().isBlank()) {
+			Categoria categoria = form.converter(categoriaRepository);
+			categoriaRepository.save(categoria);
+			return ResponseEntity.ok().build();
 		}
-		
-		Categoria categoria = form.converter(categoriaRepository);
-		categoriaRepository.save(categoria);
-		return ResponseEntity.ok().build();
-		
+		return ResponseEntity.badRequest().build();
 	}
 	
 }

@@ -21,29 +21,13 @@ public class CadastraAutorController {
 	@Autowired
 	AutorRepository autorRepository;
 	
-	@GetMapping(value = "/lista")
-	public List<Autor> lista(){
-		Iterable<Autor> autor = autorRepository.findAll();
-		return (List<Autor>) autor;
-	}
-	
 	@PostMapping(value = "/cadastraAutor")
-	public ResponseEntity<Autor> criaAutor(@RequestBody @Valid AutorForm autorForm) {
-		
+	public String criaAutor(@RequestBody @Valid AutorForm autorForm) {
 		if (autorForm.getNome().isBlank() || autorForm.getEmail().isBlank() || autorForm.getDescricao().isBlank()) {
-			return ResponseEntity.badRequest().build();
+			return "Dados invalidos";
 		}
-		
-		Autor autor = autorForm.converter(autorRepository);
-		
-		System.out.println("Criando autor...");
-		
+		Autor autor = new Autor(autorForm.getNome(), autorForm.getEmail(), autorForm.getDescricao());
 		autorRepository.save(autor);
-		autorForm.toString();
-		return ResponseEntity.ok().build();
-		
+		return "Criado com sucesso";
 	}
-	
-
-	
 }

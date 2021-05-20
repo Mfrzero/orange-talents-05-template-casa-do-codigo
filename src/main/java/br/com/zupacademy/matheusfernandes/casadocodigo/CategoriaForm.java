@@ -12,12 +12,10 @@ public class CategoriaForm {
 	public String getNome() {
 		return nome;
 	}
-
 	public Categoria converter(CategoriaRepository categoriaRepository) {
-
-		return new Categoria(nome);
+		Categoria categoria = new Categoria(nome);
+		return categoria;
 	}
-
 	@Override
 	public String toString() {
 		return "AutorForm [nome=" + nome + "]";
