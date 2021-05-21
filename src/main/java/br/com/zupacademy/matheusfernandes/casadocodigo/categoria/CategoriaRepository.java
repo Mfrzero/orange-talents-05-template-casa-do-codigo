@@ -1,4 +1,4 @@
-package br.com.zupacademy.matheusfernandes.casadocodigo;
+package br.com.zupacademy.matheusfernandes.casadocodigo.categoria;
 
 import java.util.Optional;
 

@@ -1,4 +1,4 @@
-package br.com.zupacademy.matheusfernandes.casadocodigo;
+package br.com.zupacademy.matheusfernandes.casadocodigo.autor;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -12,6 +12,8 @@ import javax.persistence.OneToMany;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+
+import br.com.zupacademy.matheusfernandes.casadocodigo.livro.Livro;
 
 @Entity
 public class Autor {
@@ -48,6 +50,14 @@ public class Autor {
 
 	public void setIdAutor(Long idAutor) {
 		this.idAutor = idAutor;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+	
+	public String getDescricao() {
+		return descricao;
 	}
 
 	@Override

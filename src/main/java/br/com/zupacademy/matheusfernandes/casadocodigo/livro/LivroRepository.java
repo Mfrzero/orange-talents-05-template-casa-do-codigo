@@ -1,8 +1,4 @@
-package br.com.zupacademy.matheusfernandes.casadocodigo;
-
-import java.util.Optional;
-
-import javax.validation.constraints.NotNull;
+package br.com.zupacademy.matheusfernandes.casadocodigo.livro;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -10,6 +6,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface LivroRepository extends CrudRepository<Livro, Long>{
 
-	Optional<Livro> findById(Livro id);
+	Livro findById(Livro id);
 
 }

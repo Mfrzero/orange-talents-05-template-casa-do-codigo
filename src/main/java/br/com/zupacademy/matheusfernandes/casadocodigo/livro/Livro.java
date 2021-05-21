@@ -1,7 +1,8 @@
-package br.com.zupacademy.matheusfernandes.casadocodigo;
+package br.com.zupacademy.matheusfernandes.casadocodigo.livro;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
@@ -10,6 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.Min;
+
+import br.com.zupacademy.matheusfernandes.casadocodigo.autor.Autor;
+import br.com.zupacademy.matheusfernandes.casadocodigo.categoria.Categoria;
 
 @Entity
 public class Livro {
@@ -26,10 +30,10 @@ public class Livro {
 	private LocalDate dataPublicacao;
 	@ManyToOne
 	@JoinColumn(name = "autorId", foreignKey = @ForeignKey(name = "fkAutor"))
-	private Autor idAutor;
+	private Autor autor;
 	@ManyToOne
 	@JoinColumn(name = "categoriaId", foreignKey = @ForeignKey(name = "fkCategoria"))
-	private Categoria idCategoria;
+	private Categoria categoria;
 	
 	
 	public Livro() {
@@ -39,24 +43,24 @@ public class Livro {
 		return id;
 	}
 
-	public Autor getIdAutor() {
-		return idAutor;
+	public Autor getAutor() {
+		return autor;
 	}
 
-	public void setIdAutor(Autor idAutor) {
-		this.idAutor = idAutor;
+	public void setAutor(Autor autor) {
+		this.autor = autor;
 	}
 
-	public Categoria getIdCategoria() {
-		return idCategoria;
+	public Categoria getCategoria() {
+		return categoria;
 	}
 
-	public void setIdCategoria(Categoria idCategoria) {
-		this.idCategoria = idCategoria;
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
 	}
 
 	public Livro(String titulo, String resumo, String sumario, BigDecimal preco, Integer numeroDePaginas, String isbn,
-			LocalDate dataPublicacao, Autor idAutor, Categoria idCategoria) {
+			LocalDate dataPublicacao, Autor autor, Categoria categoria) {
 		this.titulo = titulo;
 		this.resumo = resumo;
 		this.sumario = sumario;
@@ -64,8 +68,8 @@ public class Livro {
 		this.numeroDePaginas = numeroDePaginas;
 		this.isbn = isbn;
 		this.dataPublicacao = dataPublicacao;
-		this.idAutor = idAutor;
-		this.idCategoria = idCategoria;
+		this.autor = autor;
+		this.categoria = categoria;
 	}
 
 	public Livro(String titulo) {

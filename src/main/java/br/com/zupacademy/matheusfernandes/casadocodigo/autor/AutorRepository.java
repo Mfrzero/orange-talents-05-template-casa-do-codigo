@@ -1,4 +1,4 @@
-package br.com.zupacademy.matheusfernandes.casadocodigo;
+package br.com.zupacademy.matheusfernandes.casadocodigo.autor;
 
 import java.util.Optional;
 

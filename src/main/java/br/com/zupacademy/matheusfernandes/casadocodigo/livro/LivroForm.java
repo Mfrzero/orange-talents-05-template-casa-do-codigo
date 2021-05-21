@@ -1,4 +1,4 @@
-package br.com.zupacademy.matheusfernandes.casadocodigo;
+package br.com.zupacademy.matheusfernandes.casadocodigo.livro;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -14,6 +14,9 @@ import org.springframework.validation.annotation.Validated;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 import com.sun.istack.NotNull;
+
+import br.com.zupacademy.matheusfernandes.casadocodigo.autor.Autor;
+import br.com.zupacademy.matheusfernandes.casadocodigo.categoria.Categoria;
 
 @Validated
 public class LivroForm {
