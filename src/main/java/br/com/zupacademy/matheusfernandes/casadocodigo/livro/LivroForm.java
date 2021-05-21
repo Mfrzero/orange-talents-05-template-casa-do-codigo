@@ -54,13 +54,6 @@ public class LivroForm {
 		this.idCategoria = idCategoria;
 	}
 
-	public Livro converter(EntityManager manager) {
-		Autor autor = manager.find(Autor.class, idAutor);
-		Categoria categoria = manager.find(Categoria.class, idAutor);
-		Assert.state(autor!=null, "Id do autor não cadastrado");
-		Assert.state(categoria!=null, "Id da categoria não cadastrada");
-		return new Livro(titulo, resumo, sumario, preco, numeroDePaginas, isbn, dataPublicacao, autor, categoria);
-	}
 
 	public String getTitulo() {
 		return titulo;
@@ -95,5 +88,13 @@ public class LivroForm {
 	}
 	public Long getCategoria() {
 		return idCategoria;
+	}
+	
+	public Livro converter(EntityManager manager) {
+		@NotBlank Autor autor = manager.find(Autor.class, idAutor);
+		@NotBlank Categoria categoria = manager.find(Categoria.class, idAutor);
+//		Assert.state(autor!=null, "Id do autor não cadastrado");
+//		Assert.state(categoria!=null, "Id da categoria não cadastrada");
+		return new Livro(titulo, resumo, sumario, preco, numeroDePaginas, isbn, dataPublicacao, autor, categoria);
 	}
 }

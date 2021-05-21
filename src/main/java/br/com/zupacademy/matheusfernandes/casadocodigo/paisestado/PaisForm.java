@@ -1,9 +1,12 @@
 package br.com.zupacademy.matheusfernandes.casadocodigo.paisestado;
 
 import javax.persistence.EntityManager;
+import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.NotBlank;
 
 public class PaisForm {
 	
+	@NotBlank
 	private String nome;
 
 	public Pais converter(EntityManager manager) {

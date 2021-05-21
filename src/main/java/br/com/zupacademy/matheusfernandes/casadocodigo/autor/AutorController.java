@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @Validated
-public class CadastraAutorController {
+public class AutorController {
 	
 	@Autowired
 	AutorRepository autorRepository;

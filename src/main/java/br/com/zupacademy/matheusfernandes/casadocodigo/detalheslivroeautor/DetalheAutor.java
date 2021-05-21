@@ -6,7 +6,6 @@ import br.com.zupacademy.matheusfernandes.casadocodigo.autor.Autor;
 
 public class DetalheAutor {
 
-	private Long id;
 	@NotBlank
 	private String nome;
 	@NotBlank

@@ -1,5 +1,6 @@
 package br.com.zupacademy.matheusfernandes.casadocodigo.paisestado;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,6 +13,7 @@ public class Pais {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@NotBlank(message = "campo não pode ser vazio")
+//	@Column(unique = true)
 	private String nome;
 	
 	public Pais(@NotBlank String nome) {

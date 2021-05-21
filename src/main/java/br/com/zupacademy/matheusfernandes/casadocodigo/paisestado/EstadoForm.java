@@ -4,6 +4,8 @@ import javax.persistence.EntityManager;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class EstadoForm {
 
 	@NotBlank
@@ -25,6 +27,7 @@ public class EstadoForm {
 	}
 
 	public Estado converter(EntityManager manager) {
+		
 		Pais pais = manager.find(Pais.class, idPais);
 		return new Estado(nome, pais);
 	}

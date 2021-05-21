@@ -2,7 +2,7 @@ package br.com.zupacademy.matheusfernandes.casadocodigo.categoria;
 
 import javax.validation.constraints.NotBlank;
 
-import br.com.zupacademy.matheusfernandes.casadocodigo.UniqueValue;
+import validators.UniqueValue;
 
 
 public class CategoriaForm {

@@ -36,7 +36,7 @@ public class DetalheLivro {
 		this.preco = livro.getPreco();
 		this.dataPublicacao = livro.getDataPublicacao().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 	}
-	
+
 	public String getDataPublicacao() {
 		return dataPublicacao;
 	}

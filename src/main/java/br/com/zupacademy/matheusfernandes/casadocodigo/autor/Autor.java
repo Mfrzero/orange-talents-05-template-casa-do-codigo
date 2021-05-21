@@ -34,7 +34,7 @@ public class Autor {
 	private List<Livro> livro;
 	
 	
-		
+	@Deprecated
 	public Autor() {
 	}
 	
@@ -44,14 +44,14 @@ public class Autor {
 		this.descricao = descricao;
 	}
 
-	public Long getIdAutor() {
-		return idAutor;
-	}
+//	public Long getIdAutor() {
+//		return idAutor;
+//	}
 
-	public void setIdAutor(Long idAutor) {
-		this.idAutor = idAutor;
-	}
-
+//	public void setIdAutor(Long idAutor) {
+//		this.idAutor = idAutor;
+//	}
+//
 	public String getNome() {
 		return nome;
 	}
@@ -65,5 +65,6 @@ public class Autor {
 		return "Autor [id=" + idAutor + ", nome=" + nome + ", email=" + email + ", descricao=" + descricao
 				+ ", horaDeRegistro=" + horaDeRegistro + "]";
 	}
+
 
 }

@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 
 import br.com.zupacademy.matheusfernandes.casadocodigo.autor.Autor;
 import br.com.zupacademy.matheusfernandes.casadocodigo.categoria.Categoria;
@@ -21,6 +22,7 @@ public class Livro {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@NotBlank
 	private String titulo;
 	private String resumo;
 	private String sumario;
@@ -35,32 +37,11 @@ public class Livro {
 	@JoinColumn(name = "categoriaId", foreignKey = @ForeignKey(name = "fkCategoria"))
 	private Categoria categoria;
 	
-	
 	public Livro() {
 	}
 
-	public Long getId() {
-		return id;
-	}
-
-	public Autor getAutor() {
-		return autor;
-	}
-
-	public void setAutor(Autor autor) {
-		this.autor = autor;
-	}
-
-	public Categoria getCategoria() {
-		return categoria;
-	}
-
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
-	}
-
-	public Livro(String titulo, String resumo, String sumario, BigDecimal preco, Integer numeroDePaginas, String isbn,
-			LocalDate dataPublicacao, Autor autor, Categoria categoria) {
+	public Livro(@NotBlank String titulo, String resumo, String sumario, @Min(20) BigDecimal preco,
+			Integer numeroDePaginas, String isbn, LocalDate dataPublicacao, Autor autor, Categoria categoria) {
 		this.titulo = titulo;
 		this.resumo = resumo;
 		this.sumario = sumario;
@@ -72,12 +53,13 @@ public class Livro {
 		this.categoria = categoria;
 	}
 
-	public Livro(String titulo) {
-		this.titulo = titulo;
-	}
-
 	public String getTitulo() {
 		return titulo;
+	}
+
+
+	public Long getId() {
+		return id;
 	}
 
 	public String getResumo() {
@@ -88,7 +70,7 @@ public class Livro {
 		return sumario;
 	}
 
-	public @Min(20) BigDecimal getPreco() {
+	public BigDecimal getPreco() {
 		return preco;
 	}
 
@@ -103,5 +85,16 @@ public class Livro {
 	public LocalDate getDataPublicacao() {
 		return dataPublicacao;
 	}
+
+	public Autor getAutor() {
+		return autor;
+	}
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+
+	
 
 }

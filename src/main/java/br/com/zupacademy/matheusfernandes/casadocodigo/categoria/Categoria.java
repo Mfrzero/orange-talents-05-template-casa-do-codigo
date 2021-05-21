@@ -23,19 +23,20 @@ public class Categoria {
 	@OneToMany @JoinColumn(name = "categoria")
 	private List<Livro> livro;
 	
+	@Deprecated
 	public Categoria() {
 	}
 
 	public Categoria(@NotBlank String nome) {
 		this.nome = nome;
 	}
-		
-	public Long getIdCategoria() {
-		return idCategoria;
-	}
-
-	public void setIdCategoria(Long idCategoria) {
-		this.idCategoria = idCategoria;
-	}
+//		
+//	public Long getIdCategoria() {
+//		return idCategoria;
+//	}
+//
+//	public void setIdCategoria(Long idCategoria) {
+//		this.idCategoria = idCategoria;
+//	}
 
 }

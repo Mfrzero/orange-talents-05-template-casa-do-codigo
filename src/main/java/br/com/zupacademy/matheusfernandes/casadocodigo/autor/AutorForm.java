@@ -3,8 +3,8 @@ package br.com.zupacademy.matheusfernandes.casadocodigo.autor;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
-import br.com.zupacademy.matheusfernandes.casadocodigo.UniqueValue;
 import br.com.zupacademy.matheusfernandes.casadocodigo.categoria.Categoria;
+import validators.UniqueValue;
 
 public class AutorForm {
 	
