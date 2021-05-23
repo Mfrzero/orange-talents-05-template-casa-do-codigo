@@ -9,7 +9,7 @@ import org.springframework.data.repository.query.Param;
 public interface EstadoRepository extends CrudRepository<Estado, Long>{
 
 
-	@Query(value = "Select * from estado WHERE pais_id = :id and nome = :nome", nativeQuery = true)
+	@Query(value = "Select * from estado WHERE id = :id and nome = :nome", nativeQuery = true)
 	Optional<Estado> findByNomeAndPaisId(@Param("id") Long idPais, @Param("nome") String nome);
 
 	Optional<?> findByNome(String nome);

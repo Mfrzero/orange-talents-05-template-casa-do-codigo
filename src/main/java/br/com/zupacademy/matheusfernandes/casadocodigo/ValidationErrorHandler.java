@@ -1,4 +1,4 @@
-package validators;
+package br.com.zupacademy.matheusfernandes.casadocodigo;
 
 import java.util.List;
 
@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+
+
 @RestControllerAdvice
 public class ValidationErrorHandler {
 	@Autowired
@@ -25,15 +27,14 @@ public class ValidationErrorHandler {
 	}
 	
 	
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	@ExceptionHandler(MethodArgumentNotValidException.class)
-	@ResponseStatus(code = HttpStatus.BAD_REQUEST)
 	public ValidationErrorsOutputDto handle(MethodArgumentNotValidException e) {
 		
 		List<ObjectError> globalErrors = e.getBindingResult().getGlobalErrors();
 		List<FieldError> fieldErrors = e.getBindingResult().getFieldErrors();
 		return buildValidationErrors(globalErrors, fieldErrors);
 	}
-	
 	private ValidationErrorsOutputDto buildValidationErrors(List<ObjectError> globalErrors, List<FieldError> fieldErrors) {
 		ValidationErrorsOutputDto validationErrors = new ValidationErrorsOutputDto();
 		globalErrors.forEach(error -> validationErrors.addError(getErrorMessage(error)));
@@ -48,3 +49,40 @@ public class ValidationErrorHandler {
 		return messageSource.getMessage(error, LocaleContextHolder.getLocale());
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

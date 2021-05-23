@@ -2,6 +2,7 @@ package br.com.zupacademy.matheusfernandes.casadocodigo.categoria;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,10 +18,10 @@ public class Categoria {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idCategoria;
+	private Long id;
 	@NotBlank
 	private String nome;
-	@OneToMany @JoinColumn(name = "categoria")
+	@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL) 
 	private List<Livro> livro;
 	
 	@Deprecated
@@ -30,13 +31,5 @@ public class Categoria {
 	public Categoria(@NotBlank String nome) {
 		this.nome = nome;
 	}
-//		
-//	public Long getIdCategoria() {
-//		return idCategoria;
-//	}
-//
-//	public void setIdCategoria(Long idCategoria) {
-//		this.idCategoria = idCategoria;
-//	}
 
 }

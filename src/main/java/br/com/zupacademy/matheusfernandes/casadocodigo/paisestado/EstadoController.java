@@ -7,11 +7,13 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@Validated
 public class EstadoController {
 	
 	@PersistenceContext
@@ -23,7 +25,7 @@ public class EstadoController {
 	
 	@PostMapping("/estado")
 	@Transactional
-	public ResponseEntity<EstadoForm> criar(@RequestBody @Valid EstadoForm form){
+	public ResponseEntity<EstadoForm> criarEstado(@RequestBody @Valid EstadoForm form){
 		
 		if (form.getNome().isBlank() || estadoRepository.findByNomeAndPaisId(form.getIdPais(), form.getNome()).isPresent()
 				|| paisRepository.findById(form.getIdPais()).isEmpty()){
@@ -32,6 +34,6 @@ public class EstadoController {
 			
 		Estado estado = form.converter(manager);
 		manager.persist(estado);
-		return ResponseEntity.ok(form);
+		return ResponseEntity.ok().build();
 	}
 }

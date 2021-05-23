@@ -10,6 +10,8 @@ import javax.validation.constraints.NotBlank;
 
 import org.springframework.validation.annotation.Validated;
 
+import com.sun.istack.NotNull;
+
 @Validated
 public class LivroDto {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,6 +19,17 @@ public class LivroDto {
 	@NotBlank
 	private String titulo;
 	
+	@NotNull
+	private Long idAutor;
+	@NotNull
+	private Long idCategoria;
+	
+	public Long getIdAutor() {
+		return idAutor;
+	}
+	public Long getIdCategoria() {
+		return idCategoria;
+	}
 	public LivroDto(Livro livro) {
 		this.id = livro.getId();
 		this.titulo = livro.getTitulo();

@@ -1,4 +1,4 @@
-package validators;
+package br.com.zupacademy.matheusfernandes.casadocodigo;
 
 import java.util.Optional;
 
@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import br.com.zupacademy.matheusfernandes.casadocodigo.autor.AutorRepository;
 import br.com.zupacademy.matheusfernandes.casadocodigo.categoria.CategoriaRepository;
-import br.com.zupacademy.matheusfernandes.casadocodigo.paisestado.EstadoRepository;
 
 public class UniqueValueValidator implements ConstraintValidator<UniqueValue, String> {
 
@@ -17,7 +16,7 @@ public class UniqueValueValidator implements ConstraintValidator<UniqueValue, St
 	private CategoriaRepository categoriaRepository;
 	@Autowired
 	private AutorRepository autorRepository;
-
+	
 	@Override
 	public boolean isValid(String value, ConstraintValidatorContext context) {
 		Optional<?> instance;

@@ -1,4 +1,4 @@
-package validators;
+package br.com.zupacademy.matheusfernandes.casadocodigo;
 
 import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
@@ -11,7 +11,8 @@ import javax.validation.Constraint;
 import javax.validation.Payload;
 
 @Documented
-@Constraint(validatedBy = {UniqueValueValidator.class})
+//@Constraint(validatedBy = {UniqueValueValidator.class})
+@Constraint(validatedBy = {UniqueEmailAndDocValidator.class})
 @Retention(RUNTIME)
 @Target(FIELD)
 public @interface UniqueValue {

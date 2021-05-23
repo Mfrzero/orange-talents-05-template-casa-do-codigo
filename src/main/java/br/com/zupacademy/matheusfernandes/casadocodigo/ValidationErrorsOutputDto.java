@@ -1,7 +1,8 @@
-package validators;
+package br.com.zupacademy.matheusfernandes.casadocodigo;
 
 import java.util.ArrayList;
 import java.util.List;
+
 public class ValidationErrorsOutputDto {
 
 	private List<String> globalErrorMessages = new ArrayList<>();
@@ -24,3 +25,27 @@ public class ValidationErrorsOutputDto {
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -10,8 +10,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import br.com.zupacademy.matheusfernandes.casadocodigo.autor.Autor;
 import br.com.zupacademy.matheusfernandes.casadocodigo.categoria.Categoria;
@@ -31,17 +33,18 @@ public class Livro {
 	private String isbn;
 	private LocalDate dataPublicacao;
 	@ManyToOne
-	@JoinColumn(name = "autorId", foreignKey = @ForeignKey(name = "fkAutor"))
+	@JoinColumn(name = "autor_Id", referencedColumnName = "id",nullable = false)
 	private Autor autor;
 	@ManyToOne
-	@JoinColumn(name = "categoriaId", foreignKey = @ForeignKey(name = "fkCategoria"))
+	@JoinColumn(name = "categoria_Id", referencedColumnName = "id",nullable = false)
 	private Categoria categoria;
 	
+	@Deprecated
 	public Livro() {
 	}
 
 	public Livro(@NotBlank String titulo, String resumo, String sumario, @Min(20) BigDecimal preco,
-			Integer numeroDePaginas, String isbn, LocalDate dataPublicacao, Autor autor, Categoria categoria) {
+			Integer numeroDePaginas, String isbn, LocalDate dataPublicacao,@NotNull Autor autor,@NotNull Categoria categoria) {
 		this.titulo = titulo;
 		this.resumo = resumo;
 		this.sumario = sumario;
@@ -53,13 +56,13 @@ public class Livro {
 		this.categoria = categoria;
 	}
 
-	public String getTitulo() {
-		return titulo;
-	}
-
-
+	@OneToMany
 	public Long getId() {
 		return id;
+	}
+
+	public String getTitulo() {
+		return titulo;
 	}
 
 	public String getResumo() {
@@ -93,8 +96,6 @@ public class Livro {
 	public Categoria getCategoria() {
 		return categoria;
 	}
-
-
 	
 
 }

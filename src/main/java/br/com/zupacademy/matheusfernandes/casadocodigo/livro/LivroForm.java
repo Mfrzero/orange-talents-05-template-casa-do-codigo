@@ -42,7 +42,7 @@ public class LivroForm {
 
 	public LivroForm(@NotBlank String titulo, @NotBlank String resumo, @NotBlank String sumario,
 			@NotNull @Min(20) BigDecimal preco,@NotNull @Min(100) Integer numeroDePaginas, @NotBlank String isbn,
-			@Future LocalDate dataPublicacao, Long idAutor, Long idCategoria) {
+			@Future LocalDate dataPublicacao,@NotNull Long idAutor,@NotNull Long idCategoria) {
 		this.titulo = titulo;
 		this.resumo = resumo;
 		this.sumario = sumario;
@@ -53,7 +53,6 @@ public class LivroForm {
 		this.idAutor = idAutor;
 		this.idCategoria = idCategoria;
 	}
-
 
 	public String getTitulo() {
 		return titulo;
@@ -92,7 +91,7 @@ public class LivroForm {
 	
 	public Livro converter(EntityManager manager) {
 		@NotBlank Autor autor = manager.find(Autor.class, idAutor);
-		@NotBlank Categoria categoria = manager.find(Categoria.class, idAutor);
+		@NotBlank Categoria categoria = manager.find(Categoria.class, idCategoria);
 //		Assert.state(autor!=null, "Id do autor não cadastrado");
 //		Assert.state(categoria!=null, "Id da categoria não cadastrada");
 		return new Livro(titulo, resumo, sumario, preco, numeroDePaginas, isbn, dataPublicacao, autor, categoria);

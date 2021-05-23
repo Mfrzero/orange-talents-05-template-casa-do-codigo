@@ -1,4 +1,4 @@
-package validators;
+package br.com.zupacademy.matheusfernandes.casadocodigo;
 
 public class FieldErrorOutputDto {
 

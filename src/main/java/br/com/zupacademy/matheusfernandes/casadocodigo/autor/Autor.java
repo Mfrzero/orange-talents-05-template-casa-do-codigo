@@ -3,6 +3,7 @@ package br.com.zupacademy.matheusfernandes.casadocodigo.autor;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,7 +21,7 @@ public class Autor {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idAutor;
+	private Long id;
 	@NotBlank
 	private String nome;
 	@Email
@@ -30,7 +31,7 @@ public class Autor {
 	@NotBlank
 	private String descricao;
 	private LocalDateTime horaDeRegistro = LocalDateTime.now();
-	@OneToMany @JoinColumn(name = "autor")
+	@OneToMany(mappedBy = "autor", cascade = CascadeType.ALL) 
 	private List<Livro> livro;
 	
 	
@@ -44,14 +45,6 @@ public class Autor {
 		this.descricao = descricao;
 	}
 
-//	public Long getIdAutor() {
-//		return idAutor;
-//	}
-
-//	public void setIdAutor(Long idAutor) {
-//		this.idAutor = idAutor;
-//	}
-//
 	public String getNome() {
 		return nome;
 	}
@@ -62,7 +55,7 @@ public class Autor {
 
 	@Override
 	public String toString() {
-		return "Autor [id=" + idAutor + ", nome=" + nome + ", email=" + email + ", descricao=" + descricao
+		return "Autor [id=" + id + ", nome=" + nome + ", email=" + email + ", descricao=" + descricao
 				+ ", horaDeRegistro=" + horaDeRegistro + "]";
 	}
 
